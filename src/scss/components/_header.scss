@@ -1,0 +1,16 @@
+@import '../variables';
+
+.header-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #0067a3;
+
+  h2 {
+    padding: 20px 0 18px 11px;
+    margin-left: 11px;
+    color: #ffffff;
+    font-size: 28px;
+    line-height: 33px;
+  }
+}

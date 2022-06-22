@@ -1,0 +1,50 @@
+@import '../variables';
+
+.wrapper {
+  background: #ffffff;
+  border-radius: 5px;
+  margin: 22px 28px 20px 26px;
+  min-height: 550px;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    h2 {
+      margin: 22px 0 0 28px;
+    }
+    div {
+      margin: 17px 23px 0 0;
+      cursor: pointer;
+    }
+  }
+  .description {
+    margin: 35px 0 0 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .date {
+      color: #737373;
+      font-style: italic;
+      padding-top: 15px;
+    }
+    .status {
+      color: #ffffff;
+      background: $blue-main;
+      align-self: flex-start;
+      margin-top: 100px;
+      font-weight: bold;
+      padding: 8px 20px;
+      border-radius: 20px;
+    }
+  }
+  .not-found {
+    display: flex;
+    justify-content: space-between;
+    h2 {
+      padding: 28px;
+    }
+    div {
+      margin: 17px 23px 0 0;
+      cursor: pointer;
+    }
+  }
+}

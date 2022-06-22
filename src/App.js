@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import './scss/app.scss';
+
+
+import Header from './components/Header';
+import Main from './components/Main';
+import Footer from './components/Footer';
+
+// import mock from './mock.json';
+
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const initialState = JSON.parse(window.localStorage.getItem('tasks')) || [];
+  const [tasks, setTasks] = useState(initialState);
+ 
+  
+  useEffect(() => {
+    window.localStorage.setItem('tasks', JSON.stringify(tasks))
+  }, [tasks])
+
+    return (
+      <div className='app-wrapper'>
+        <Header />
+        <Main tasks={tasks} setTasks={setTasks} />
+        <Footer tasks={tasks} />
+      </div>
+    )
+ 
 }
 
 export default App;

@@ -1,0 +1,17 @@
+@import './normalize';
+@import './variables';
+@import '../scss/components/_profile.scss';
+@import '../scss/components/_header.scss';
+@import '../scss/components/_main.scss';
+@import '../scss/components/_footer.scss';
+@import '../scss/components/_board.scss';
+@import '../scss/components/_card.scss';
+@import '../scss/components/_submitForm.scss';
+@import '../scss/components/_taskDetail.scss';
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  //   height: 100%;
+}

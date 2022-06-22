@@ -1,0 +1,43 @@
+@import '../variables';
+
+.form {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  &__input {
+    display: block;
+    color: #000000;
+    padding: 7px 9px 7px 8px;
+    background: #ffffff;
+    border-radius: 5px;
+    border: none;
+  }
+  &__description {
+    margin-top: 14px;
+    resize: none;
+    padding: 7px 9px 7px 8px;
+    background: #ffffff;
+    border-radius: 5px;
+    border: none;
+  }
+}
+
+.button__submit {
+  font-size: 18px;
+  line-height: 21px;
+  color: $button-grey;
+  background: none;
+  border: none;
+  appearance: none;
+  cursor: pointer;
+  padding: 4px 6px 4px 6px;
+  margin-top: 14px;
+  border-radius: 5px;
+  align-self: flex-start;
+  width: 98px;
+
+  &:hover {
+    color: #ffffff;
+    background-color: $blue-main;
+  }
+}

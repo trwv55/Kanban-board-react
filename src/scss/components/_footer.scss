@@ -1,0 +1,30 @@
+@import '../variables';
+
+.footer {
+  min-height: 55px;
+  background-color: $blue-header;
+  display: flex;
+  justify-content: space-between;
+  .task-wrapper {
+    display: flex;
+    flex-direction: row;
+    margin: 17px 0 0 26px;
+    p {
+      color: #fff;
+      font-size: $card-fs;
+      margin-right: 15px;
+    }
+  }
+  .name {
+    color: #fff;
+    font-size: $card-fs;
+    margin: 17px 26px 0 0;
+    a {
+      color: #fff;
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
