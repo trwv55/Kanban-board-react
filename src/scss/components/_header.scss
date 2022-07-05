@@ -6,11 +6,19 @@
   justify-content: space-between;
   background-color: #0067a3;
 
+  @media (max-width: 375px) {
+    justify-content: end;
+  }
+
   h2 {
     padding: 20px 0 18px 11px;
     margin-left: 11px;
     color: #ffffff;
     font-size: 28px;
     line-height: 33px;
+
+    @media (max-width: 375px) {
+      display: none;
+    }
   }
 }

@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './scss/app.scss';
-
-
 import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
@@ -13,6 +11,7 @@ import Footer from './components/Footer';
 function App() {
   const initialState = JSON.parse(window.localStorage.getItem('tasks')) || [];
   const [tasks, setTasks] = useState(initialState);
+
  
   
   useEffect(() => {

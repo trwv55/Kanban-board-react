@@ -1,4 +1,8 @@
 .board {
   display: flex;
   flex-wrap: wrap;
+
+  @media (max-width: 415px) {
+    justify-content: center;
+  }
 }
