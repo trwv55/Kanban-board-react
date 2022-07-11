@@ -6,18 +6,21 @@ import SelectForm from './SelectForm';
 
 function Card(props) {
   const { title, tasks, addNewTask, type, initTasks, setTasks } = props;
+  console.log('type', type);
   const [isFormVisible, setIsFormVisible] = useState(false);
 
   const handleClick = () => {
     setIsFormVisible(!isFormVisible);
   };
 
+  const backlogTasks = initTasks.filter((task) => task.status === LIST_TYPES.BACKLOG);
+
   return (
     <div className="card">
       <h2 className="card__title">{title}</h2>
       {tasks.map((task) => {
         return (
-          <Link to={`/tasks/${task.id}`}>
+          <Link to={`/tasks/${task.id}`} key={task.id}>
             <div className="card__task" key={task.id}>
               {task.title}
             </div>

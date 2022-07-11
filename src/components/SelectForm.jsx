@@ -1,7 +1,7 @@
 import React from 'react';
 import { LIST_TYPES } from '../config';
 
-const SelectForm = ({ type, setIsFormVisible, initTasks, setTasks }) => {
+const SelectForm = ({ type, setIsFormVisible, initTasks, setTasks, backlogTasks }) => {
   const changeType = (type) => {
     switch (type) {
       case LIST_TYPES.READY:
@@ -19,20 +19,17 @@ const SelectForm = ({ type, setIsFormVisible, initTasks, setTasks }) => {
 
   const handleChange = (e) => {
     const newTitle = e.target.value;
-    const updatedTask = initTasks.map((task, i) => {
-      if (task.title === newTitle) {
-        return { ...task, status: type };
-      }
-      return task;
-    });
-
-    setTasks(updatedTask);
+    const foundTask = initTasks.find((item) => item.title === newTitle);
+    console.log(foundTask);
+    foundTask.status = type;
+    const updatedTasks = [...initTasks.filter((item) => item.title !== newTitle), foundTask];
+    setTasks(updatedTasks);
     setIsFormVisible(false);
   };
 
   return (
     <select className="select" onChange={handleChange}>
-      <option key="" defaultValue={false} value=""></option>
+      <option defaultValue={false} value=""></option>
       {typeTasks.map((task) => {
         return (
           <option key={task.id} value={task.title}>

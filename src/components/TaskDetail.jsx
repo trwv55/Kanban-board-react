@@ -18,25 +18,22 @@ const TaskDetail = (props) => {
   };
 
   const isCurrentBeingUpdated = updatedItem === task.id;
-  // console.log('updatedItem', updatedItem);
 
   const handleInputChange = (e) => {
     setTasks((prevTasks) =>
-      prevTasks.map(
-        (item) => (item.id === task.id ? { ...item, description: e.target.value } : item),
-        // console.log('prevTasks', prevTasks),
+      prevTasks.map((item) =>
+        item.id === task.id ? { ...item, description: e.target.value } : item,
       ),
     );
   };
 
   const renderTitleOrInput = () => {
     return isCurrentBeingUpdated ? (
-      <input classname="input" value={task.description} onChange={handleInputChange} />
+      <input className="input" value={task.description} onChange={handleInputChange} />
     ) : (
       task.description
     );
   };
-  // console.log('isCurrentBeingUpdated', isCurrentBeingUpdated);
 
   return (
     <div className="wrapper">
