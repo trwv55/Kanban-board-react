@@ -22,20 +22,20 @@ function SubmitForm(props) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="form">
+    <form onSubmit={handleSubmit} className='form'>
       <input
-        className="form__input"
-        type="text"
-        placeholder="Enter task title"
-        name="title"
+        className='form__input'
+        type='text'
+        placeholder='Enter task title'
+        name='title'
         value={values.title}
         onChange={handleChange}
       />
       <textarea
-        className="form__description"
-        type="text"
-        placeholder="Enter task description"
-        name="description"
+        className='form__description'
+        type='text'
+        placeholder='Enter task description'
+        name='description'
         value={values.description}
         onChange={handleChange}
       />
