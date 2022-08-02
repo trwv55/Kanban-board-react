@@ -6,30 +6,32 @@ import SelectForm from './SelectForm';
 
 function Card(props) {
   const { title, tasks, addNewTask, type, initTasks, setTasks } = props;
-  console.log('type', type);
   const [isFormVisible, setIsFormVisible] = useState(false);
+  const [isButtonVisible, setIsButtonVisible] = useState(true);
 
   const handleClick = () => {
     setIsFormVisible(!isFormVisible);
+    setIsButtonVisible(!isButtonVisible);
   };
 
-  const backlogTasks = initTasks.filter((task) => task.status === LIST_TYPES.BACKLOG);
-
   return (
-    <div className="card">
-      <h2 className="card__title">{title}</h2>
+    <div className='card'>
+      <h2 className='card__title'>{title}</h2>
       {tasks.map((task) => {
         return (
           <Link to={`/tasks/${task.id}`} key={task.id}>
-            <div className="card__task" key={task.id}>
-              {task.title}
-            </div>
+            <div className='card__task'>{task.title}</div>
           </Link>
         );
       })}
 
       {type === LIST_TYPES.BACKLOG && isFormVisible && (
-        <SubmitForm addNewTask={addNewTask} setIsFormVisible={setIsFormVisible} />
+        <SubmitForm
+          addNewTask={addNewTask}
+          isFormVisible={isFormVisible}
+          setIsFormVisible={setIsFormVisible}
+          setIsButtonVisible={setIsButtonVisible}
+        />
       )}
 
       {type === LIST_TYPES.READY && isFormVisible && (
@@ -38,6 +40,7 @@ function Card(props) {
           type={type}
           setIsFormVisible={setIsFormVisible}
           setTasks={setTasks}
+          setIsButtonVisible={setIsButtonVisible}
         />
       )}
 
@@ -47,6 +50,7 @@ function Card(props) {
           type={type}
           setIsFormVisible={setIsFormVisible}
           setTasks={setTasks}
+          setIsButtonVisible={setIsButtonVisible}
         />
       )}
 
@@ -56,10 +60,11 @@ function Card(props) {
           type={type}
           setIsFormVisible={setIsFormVisible}
           setTasks={setTasks}
+          setIsButtonVisible={setIsButtonVisible}
         />
       )}
-      <button onClick={handleClick} className={isFormVisible ? 'button__submit' : 'button'}>
-        {isFormVisible ? 'Submit' : '+ Add card'}
+      <button onClick={handleClick} className='button'>
+        {isButtonVisible && '+ Add card'}
       </button>
     </div>
   );

@@ -19,7 +19,7 @@ function Board(props) {
   };
 
   return (
-    <div className="board">
+    <div className='board'>
       {Object.values(LIST_TYPES).map((type, i) => {
         const listTasks = tasks.filter((task) => task.status === type);
         return (

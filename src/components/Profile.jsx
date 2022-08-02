@@ -1,62 +1,56 @@
-import { toHaveStyle } from '@testing-library/jest-dom/dist/matchers';
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Avatar from '../assets/user-avatar.svg';
 
+function Profile() {
+  const [isLogged, setIsLogged] = useState(true);
+  const profileRef = useRef();
 
-class Profile extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            isLogged: true,
-        };
-        this.handleClick = this.handleClick.bind(this);
-    
-    }
+  const handleClick = () => {
+    setIsLogged(!isLogged);
+  };
 
-    handleClick = () => {
-        this.setState({
-            isLogged: !this.state.isLogged
-        });
-    }
+  useEffect(() => {
+    const handleClickBody = (event) => {
+      if (!event.path.includes(profileRef.current)) {
+        setIsLogged(true);
+      }
+    };
+    document.body.addEventListener('click', handleClickBody);
+    return () => {
+      document.body.removeEventListener('click', handleClickBody);
+    };
+  }, []);
 
-    render(){
-        const popUpList = ['Profile', 'Log-out'];
-        
-        const profilePopupOpen = (
-            <div className='profile__popup' >
-                 <div className='profile__label' onClick={this.handleClick}>
-                    <img src={Avatar}  alt=''/>
-                    <span>&#8743;</span>
-                 </div>
-                 <div className='profile__list'>
-                 <ul>
-                    {popUpList.map((str, i) => (
-                        <li 
-                        key={i}
-                        >
-                            {str}
-                        </li>
-                    ))}
-                </ul>
+  const popUpList = ['Profile', 'Log-out'];
 
-                 </div>
-            </div> 
-        );
+  const profilePopupOpen = (
+    <div className='profile__popup'>
+      <div className='profile__label' onClick={handleClick}>
+        <img src={Avatar} alt='' />
+        <span>&#8743;</span>
+      </div>
+      <div className='profile__list'>
+        <ul>
+          {popUpList.map((str, i) => (
+            <li key={i}>{str}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
 
-        const profilePopupClose = (
-            <div className='profile__label' onClick={this.handleClick}>
-                <img src={Avatar}  alt=''/>
-                <span>&#8744;</span>
-            </div>
-        ); 
+  const profilePopupClose = (
+    <div className='profile__label' onClick={handleClick}>
+      <img src={Avatar} alt='' />
+      <span>&#8744;</span>
+    </div>
+  );
 
-        return(
-
-            <div className='profile'>
-                {this.state.isLogged ? profilePopupClose : profilePopupOpen}
-            </div>   
-        )
-    }
+  return (
+    <div ref={profileRef} className='profile'>
+      {isLogged ? profilePopupClose : profilePopupOpen}
+    </div>
+  );
 }
 
 export default Profile;

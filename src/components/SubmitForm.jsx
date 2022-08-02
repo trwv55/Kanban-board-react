@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 function SubmitForm(props) {
-  const { addNewTask, setIsFormVisible } = props;
+  const { addNewTask, setIsFormVisible, isFormVisible, setIsButtonVisible } = props;
 
   const [values, setValues] = useState({
     title: '',
@@ -19,6 +19,7 @@ function SubmitForm(props) {
       addNewTask(values.title, values.description);
     }
     setIsFormVisible(false);
+    setIsButtonVisible(true);
   };
 
   return (
@@ -39,6 +40,7 @@ function SubmitForm(props) {
         value={values.description}
         onChange={handleChange}
       />
+      <button className={isFormVisible && 'button__submit'}>{isFormVisible && 'Submit'}</button>
     </form>
   );
 }
