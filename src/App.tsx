@@ -9,7 +9,13 @@ import mock from './mock.json';
 function App() {
   const initialState = mock;
   // JSON.parse(window.localStorage.getItem('tasks')) || [];
-  const [tasks, setTasks] = useState(initialState);
+  const [tasks, setTasks] = useState<{
+    id: string
+    title: string
+    description: string
+    created: string
+    status: string
+  }[]>(initialState);
 
   useEffect(() => {
     window.localStorage.setItem('tasks', JSON.stringify(tasks));

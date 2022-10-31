@@ -1,16 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Avatar from '../assets/user-avatar.svg';
 
-function Profile() {
+const  Profile: React.FC = () =>  {
   const [isLogged, setIsLogged] = useState(true);
-  const profileRef = useRef();
+  const profileRef = useRef<HTMLDivElement>(null);
 
   const handleClick = () => {
     setIsLogged(!isLogged);
   };
 
   useEffect(() => {
-    const handleClickBody = (event) => {
+    const handleClickBody = (event: any) => {
       if (!event.path.includes(profileRef.current)) {
         setIsLogged(true);
       }

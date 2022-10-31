@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Profile from './Profile';
 
-function Header() {
+const Header: React.FC = () => {
   return (
     <div className="header-wrapper">
       <Link to={'/'}>

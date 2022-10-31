@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import Board from './Board';
 import TaskDetail from './TaskDetail';
 
-function Main(props) {
+const Main: React.FC = (props) => {
   return (
     <div className='main'>
       <Routes>
