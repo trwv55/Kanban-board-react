@@ -1,8 +1,11 @@
 import React from 'react';
+import { TasksType } from '../App';
 import { LIST_TYPES } from '../config';
 
-function Footer(props) {
-  const { tasks } = props;
+
+type FooterProps = { tasks: TasksType[] }
+
+const Footer: React.FC<FooterProps> = ({ tasks }) => {
   const backlogTasks = tasks.filter((task) => task.status === LIST_TYPES.BACKLOG);
   const doneTasks = tasks.filter((task) => task.status === LIST_TYPES.DONE);
 

@@ -1,10 +1,18 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { TasksType } from '../App';
 
 import Board from './Board';
 import TaskDetail from './TaskDetail';
 
-const Main: React.FC = (props) => {
+
+type MainProps = {
+  tasks: TasksType[]
+  setTasks: any
+}
+
+
+const Main: React.FC<MainProps> = (props) => {
   return (
     <div className='main'>
       <Routes>

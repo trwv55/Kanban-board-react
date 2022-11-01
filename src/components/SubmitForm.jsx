@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-function SubmitForm(props) {
+const SubmitForm = (props) => {
   const { addNewTask, setIsFormVisible, isFormVisible, setIsButtonVisible } = props;
 
   const [values, setValues] = useState({
-    title: '',
-    description: '',
+    title: "",
+    description: "",
   });
 
   const handleChange = (e) => {
@@ -40,9 +40,9 @@ function SubmitForm(props) {
         value={values.description}
         onChange={handleChange}
       />
-      <button className={isFormVisible && 'button__submit'}>{isFormVisible && 'Submit'}</button>
+      <button className={isFormVisible && "button__submit"}>{isFormVisible && "Submit"}</button>
     </form>
   );
-}
+};
 
 export default SubmitForm;

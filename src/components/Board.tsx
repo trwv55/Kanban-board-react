@@ -1,13 +1,19 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
 import { LIST_TYPES, LIST_COPY } from '../config';
-
 import Card from './Card';
+import { TasksType } from '../App';
 
-function Board(props) {
+
+type BoardProps = {
+  tasks: TasksType[]
+  setTasks: any
+}
+
+const Board: React.FC<BoardProps> = (props) => {
   const { tasks, setTasks } = props;
 
-  const addNewTask = (title, description) => {
+  const addNewTask = (title: string, description: string) => {
     const newTask = {
       id: nanoid(),
       title: title,
@@ -22,6 +28,7 @@ function Board(props) {
     <div className='board'>
       {Object.values(LIST_TYPES).map((type, i) => {
         const listTasks = tasks.filter((task) => task.status === type);
+        console.log(listTasks)
         return (
           <Card
             key={i}

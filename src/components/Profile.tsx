@@ -10,7 +10,7 @@ const  Profile: React.FC = () =>  {
   };
 
   useEffect(() => {
-    const handleClickBody = (event: any) => {
+    const handleClickBody = (event: React.MouseEvent<HTMLBodyElement>) => {
       if (!event.path.includes(profileRef.current)) {
         setIsLogged(true);
       }

@@ -3,9 +3,19 @@ import { Link } from 'react-router-dom';
 import { LIST_TYPES } from '../config';
 import SubmitForm from './SubmitForm';
 import SelectForm from './SelectForm';
+import { TasksType } from '../App';
 
-function Card(props) {
-  const { title, tasks, addNewTask, type, initTasks, setTasks } = props;
+
+type CardProps = {
+  title: string
+  tasks: TasksType[]
+  addNewTask: (title: string, description: string) => void
+  type: string
+  initTasks: TasksType[]
+  setTasks: any
+}
+
+const Card: React.FC<CardProps> = ({ title, tasks, addNewTask, type, initTasks, setTasks }) => {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [isButtonVisible, setIsButtonVisible] = useState(true);
 

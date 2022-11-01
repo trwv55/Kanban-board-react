@@ -6,16 +6,18 @@ import Footer from './components/Footer';
 
 import mock from './mock.json';
 
-function App() {
-  const initialState = mock;
-  // JSON.parse(window.localStorage.getItem('tasks')) || [];
-  const [tasks, setTasks] = useState<{
-    id: string
+export type TasksType = {
+     id: string
     title: string
     description: string
     created: string
     status: string
-  }[]>(initialState);
+}
+
+function App() {
+  const initialState = mock;
+  // JSON.parse(window.localStorage.getItem('tasks')) || [];
+  const [tasks, setTasks] = useState<TasksType[]>(initialState);
 
   useEffect(() => {
     window.localStorage.setItem('tasks', JSON.stringify(tasks));
