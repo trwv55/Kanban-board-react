@@ -1,5 +1,14 @@
-import React from 'react';
-import { LIST_TYPES } from '../config';
+import React from "react";
+import { TasksType } from "../App";
+import { LIST_TYPES } from "../config";
+
+// type SelectFormProps = {
+//   type: string
+//   setIsFormVisible: React.Dispatch<React.SetStateAction<boolean>>
+//   initTasks: TasksType[]
+//   setTasks: any
+//   setIsButtonVisible: React.Dispatch<React.SetStateAction<boolean>>
+// }
 
 const SelectForm = ({ type, setIsFormVisible, initTasks, setTasks, setIsButtonVisible }) => {
   const changeType = (type) => {

@@ -7,11 +7,10 @@ import { TasksType } from '../App';
 
 type BoardProps = {
   tasks: TasksType[]
-  setTasks: any
+  setTasks: React.Dispatch<React.SetStateAction<TasksType[]>> 
 }
 
-const Board: React.FC<BoardProps> = (props) => {
-  const { tasks, setTasks } = props;
+const Board: React.FC<BoardProps> = ({ tasks, setTasks }) => {
 
   const addNewTask = (title: string, description: string) => {
     const newTask = {

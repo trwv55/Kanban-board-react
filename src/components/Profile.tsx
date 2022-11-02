@@ -1,6 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Avatar from '../assets/user-avatar.svg';
 
+
+type BodyClick = MouseEvent & {
+  path: Node[];
+}
+
 const  Profile: React.FC = () =>  {
   const [isLogged, setIsLogged] = useState(true);
   const profileRef = useRef<HTMLDivElement>(null);
@@ -10,8 +15,9 @@ const  Profile: React.FC = () =>  {
   };
 
   useEffect(() => {
-    const handleClickBody = (event: React.MouseEvent<HTMLBodyElement>) => {
-      if (!event.path.includes(profileRef.current)) {
+    const handleClickBody = (event: MouseEvent) => { 
+      const _event = event as BodyClick;
+      if (profileRef.current && !_event.path.includes(profileRef.current)) {
         setIsLogged(true);
       }
     };

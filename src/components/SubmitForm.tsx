@@ -1,19 +1,25 @@
 import React, { useState } from "react";
 
-const SubmitForm = (props) => {
-  const { addNewTask, setIsFormVisible, isFormVisible, setIsButtonVisible } = props;
+type SubmitFormProps = {
+  addNewTask: (title: string, description: string) => void
+  setIsFormVisible:  React.Dispatch<React.SetStateAction<boolean>> 
+  isFormVisible: any
+  setIsButtonVisible:  React.Dispatch<React.SetStateAction<boolean>> 
+}
 
+const SubmitForm: React.FC<SubmitFormProps> = ({ addNewTask, setIsFormVisible, isFormVisible, setIsButtonVisible }) => {
+  console.log('isFV', isFormVisible)
   const [values, setValues] = useState({
     title: "",
     description: "",
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const fieldName = e.target.name;
     setValues({ ...values, [fieldName]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (values.title) {
       addNewTask(values.title, values.description);
@@ -34,7 +40,7 @@ const SubmitForm = (props) => {
       />
       <textarea
         className='form__description'
-        type='text'
+        // type='text'
         placeholder='Enter task description'
         name='description'
         value={values.description}
