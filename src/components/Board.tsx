@@ -27,7 +27,6 @@ const Board: React.FC<BoardProps> = ({ tasks, setTasks }) => {
     <div className='board'>
       {Object.values(LIST_TYPES).map((type, i) => {
         const listTasks = tasks.filter((task) => task.status === type);
-        console.log(listTasks)
         return (
           <Card
             key={i}

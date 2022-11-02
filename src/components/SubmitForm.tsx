@@ -8,7 +8,6 @@ type SubmitFormProps = {
 }
 
 const SubmitForm: React.FC<SubmitFormProps> = ({ addNewTask, setIsFormVisible, isFormVisible, setIsButtonVisible }) => {
-  console.log('isFV', isFormVisible)
   const [values, setValues] = useState({
     title: "",
     description: "",

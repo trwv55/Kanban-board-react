@@ -1,37 +1,43 @@
 import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { TasksType } from '../App';
 import { LIST_COPY } from '../config';
 
-const TaskDetail = (props) => {
-  const { tasks, setTasks } = props;
+type TaskDetailProps = {
+  tasks: TasksType[]
+  setTasks: React.Dispatch<React.SetStateAction<TasksType[]>> 
+}
+
+const TaskDetail: React.FC<TaskDetailProps> = ({ tasks, setTasks }) => {
   const { taskId } = useParams();
 
-  const [updatedItem, setUpdatedItem] = useState(null);
+  const [updatedItem, setUpdatedItem] = useState<string | null>(null);
+  console.log('uI', updatedItem)
 
   const task = tasks.find((task) => task.id === taskId);
 
   const mock = 'This task has no description';
 
-  const formatDate = (stringDate) => {
+  const formatDate = (stringDate: string | number | Date) => {
     const date = new Date(stringDate);
     return date.toLocaleString('ru-RU');
   };
 
-  const isCurrentBeingUpdated = updatedItem === task.id;
+  const isCurrentBeingUpdated = updatedItem;
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTasks((prevTasks) =>
       prevTasks.map((item) =>
-        item.id === task.id ? { ...item, description: e.target.value } : item,
+        item.id === task?.id ? { ...item, description: e.target.value } : item,
       ),
     );
   };
 
   const renderTitleOrInput = () => {
     return isCurrentBeingUpdated ? (
-      <input className="input" value={task.description} onChange={handleInputChange} />
+      <input className="input" value={task?.description} onChange={handleInputChange} />
     ) : (
-      task.description
+      task?.description
     );
   };
 
