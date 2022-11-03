@@ -8,7 +8,7 @@ import TaskDetail from './TaskDetail';
 
 type MainProps = {
   tasks: TasksType[]
-  setTasks: any
+  setTasks: React.Dispatch<React.SetStateAction<TasksType[]>> 
 }
 
 

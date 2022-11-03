@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 import mock from './mock.json';
 
 export type TasksType = {
-     id: string
+    id: string
     title: string
     description: string
     created: string

@@ -12,13 +12,13 @@ type CardProps = {
   addNewTask: (title: string, description: string) => void
   type: string
   initTasks: TasksType[]
-  setTasks: any
+  setTasks: React.Dispatch<React.SetStateAction<TasksType[]>> 
 }
 
 
 
 const Card: React.FC<CardProps> = ({ title, tasks, addNewTask, type, initTasks, setTasks }) => {
-  const [isFormVisible, setIsFormVisible] = useState<any>(false);
+  const [isFormVisible, setIsFormVisible] = useState(false);
   const [isButtonVisible, setIsButtonVisible] = useState(true);
 
   const handleClick = () => {

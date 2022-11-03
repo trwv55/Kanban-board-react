@@ -3,7 +3,7 @@ import React, { useState } from "react";
 type SubmitFormProps = {
   addNewTask: (title: string, description: string) => void
   setIsFormVisible:  React.Dispatch<React.SetStateAction<boolean>> 
-  isFormVisible: any
+  isFormVisible:  any
   setIsButtonVisible:  React.Dispatch<React.SetStateAction<boolean>> 
 }
 

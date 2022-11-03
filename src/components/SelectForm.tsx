@@ -36,7 +36,6 @@ const SelectForm: React.FC<SelectFormProps> = ({ type, setIsFormVisible, initTas
       setIsFormVisible(false);
       setIsButtonVisible(true);
       }
- 
   };
 
   return (

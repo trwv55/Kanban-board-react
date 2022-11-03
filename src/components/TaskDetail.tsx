@@ -10,12 +10,9 @@ type TaskDetailProps = {
 
 const TaskDetail: React.FC<TaskDetailProps> = ({ tasks, setTasks }) => {
   const { taskId } = useParams();
-
   const [updatedItem, setUpdatedItem] = useState<string | null>(null);
-  console.log('uI', updatedItem)
 
   const task = tasks.find((task) => task.id === taskId);
-
   const mock = 'This task has no description';
 
   const formatDate = (stringDate: string | number | Date) => {
